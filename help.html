@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Help &amp; FAQ — Saudi Address Finder</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #ffffff;
+    color: #334155;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.65;
+  }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  h1 {
+    font-size: 30px;
+    margin: 0 0 4px;
+    color: #1e293b;
+  }
+  .subtitle {
+    color: #94a3b8;
+    font-size: 13px;
+    margin-bottom: 36px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 40px 0 14px;
+    color: #1e293b;
+  }
+  h3 {
+    font-size: 15px;
+    margin: 20px 0 4px;
+    color: #1e293b;
+  }
+  p, li {
+    color: #475569;
+    font-size: 15px;
+  }
+  ol, ul { padding-left: 20px; }
+  ol li { margin-bottom: 10px; }
+  a { color: #059669; }
+  .back {
+    display: inline-block;
+    margin-bottom: 24px;
+    font-size: 13px;
+  }
+  .faq-item { margin-bottom: 20px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="/">&larr; Saudi Address Finder</a>
+    <h1>Help &amp; FAQ</h1>
+    <div class="subtitle">Getting started, and answers to common questions.</div>
+
+    <h2>Getting Started</h2>
+    <ol>
+      <li>Install the app on your store from the Shopify App Store.</li>
+      <li>Open <strong>Online Store &rarr; Themes &rarr; Customize &rarr; App embeds</strong>, and turn on "National Address Picker."</li>
+      <li>In the app's admin, under <strong>Settings</strong>, confirm "Enable National Address widget on storefront" is turned on.</li>
+      <li>Customers will now see a "Please Select Your Delivery Location" prompt in their cart. They drop a pin on the map, and the app resolves it into a National Address code automatically.</li>
+      <li>In the app's dashboard, the <strong>Resolved orders</strong> table shows every order with a National Address found, and how it was found. The <strong>Unresolved orders</strong> table shows any orders that still need one, with quick links to follow up by email or WhatsApp.</li>
+    </ol>
+
+    <h2>FAQ</h2>
+
+    <div class="faq-item">
+      <h3>Does this cost anything?</h3>
+      <p>There's a free plan (25 orders/month), and two paid plans for higher volume: Growth ($12/mo) and Scale ($25/mo). You can upgrade any time from the app's Plan &amp; Usage section.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Is customer data safe?</h3>
+      <p>Yes. The database is encrypted at rest, every access to customer contact info is logged, and that info is automatically deleted 90 days after an order is processed. We don't sell or share customer data with anyone.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Do I need my own Google Maps key?</h3>
+      <p>No — a shared key is used by default and just works. If you have your own Google Cloud project, you can add your own key in Settings to remove the monthly map-view cap.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Will it work with my theme?</h3>
+      <p>Yes, as long as your theme supports Online Store 2.0 app embeds (most current Shopify themes do). The widget installs as a standard app block — no manual theme code editing required.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What if a customer can't find their address?</h3>
+      <p>Checkout is never blocked. If a customer doesn't complete the map step, the order still goes through, and the app automatically retries recovering the address afterward. If it still can't find one, the order shows up in the app's Unresolved orders table so you can follow up directly.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I get support?</h3>
+      <p>Email <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a>, or use the chat bubble on this site.</p>
+    </div>
+  </div>
+</body>
+</html>
