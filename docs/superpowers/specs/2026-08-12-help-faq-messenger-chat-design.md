@@ -38,18 +38,22 @@ Exact prose gets written during implementation, grounded in the current app beha
 
 ## Facebook Messenger chat integration
 
-Uses Meta's Customer Chat Plugin, tied to the merchant's existing Facebook Page.
+Uses Meta's Customer Chat Plugin, tied to the merchant's existing Facebook Page. Ships in **two places**, both using the same snippet:
 
-**Manual prerequisite (user, not code):** grab the embed snippet from the Page's own settings (Meta Business Suite → Inbox → the Page → chat-plugin setup, wording varies by Meta's current UI) and register `saudiaddressfinder.com` as a whitelisted domain there. This can't be done from the codebase — it requires the user's own Facebook login.
+1. **Website** (`saudiaddressfinder-site` repo) — `chat-widget.js`, included on all three pages. This is the page where the widget is guaranteed to work correctly (runs as the top-level page, which is what Meta's widget is designed for).
+2. **Embedded admin** (`Shopify_Public` repo) — the same script dropped directly into the existing single admin page (`routes/admin.js`). No new page or nav entry — just an addition to what's already there. This is **the priority placement** per the user (in-app first), but carries real, untested risk: the admin page runs nested inside Shopify's own iframe (Shopify Admin embeds our app), and Facebook's widget isn't built with that nesting in mind. It should work in principle (the widget script still executes at our own domain's origin regardless of nesting) but could hit sizing glitches or anti-clickjacking protections refusing to render — unverified until tested live.
 
-**Once the snippet exists:** it gets pasted into `chat-widget.js`, which every page includes. No app-side code changes needed beyond that one file.
+**Manual prerequisite (user, not code):** grab the embed snippet from the Page's own settings (Meta Business Suite → Inbox → the Page → chat-plugin setup, wording varies by Meta's current UI) and register both `saudiaddressfinder.com` and `console.saudiaddressfinder.com` as whitelisted domains there. This can't be done from the codebase — it requires the user's own Facebook login.
+
+**Fallback plan:** if the in-app placement renders badly once tested live with a real snippet, drop it and keep the website placement only — that one carries no equivalent risk.
 
 ## Out of scope
 
-- In-app "Plans"/"Support" sub-navigation inside the embedded Shopify admin — separate future project, not part of this spec.
+- A dedicated in-app "Support" page with its own left-sidebar nav entry (the full Enwany-style nav split) — separate future project. This spec only adds the chat bubble to the *existing* single admin page, not a new page.
 - Any static-site tooling/generator — revisit only if the site's page count grows meaningfully.
 - WhatsApp — explicitly ruled out (support number isn't a Saudi number).
 
 ## Testing
 
-Visual check in a browser after implementation: page renders correctly matching site style, all internal links work, chat bubble appears once the Meta snippet is in place (bubble won't function until the user completes the manual Meta setup step — that's expected, not a bug).
+- Website: visual check in a browser — `help.html` renders correctly matching site style, all internal links work.
+- Chat bubble on both placements only becomes testable once the user has a real Meta snippet (can't fake this). At that point: confirm it renders on the website first (expected to work), then confirm it renders inside the embedded admin (real Shopify install, genuinely unverified until tried) — drop the in-app placement if it doesn't render cleanly, per the fallback plan above.
