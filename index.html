@@ -51,18 +51,50 @@
     font-size: 13px;
     color: #94a3b8;
   }
+  .lang-toggle {
+    position: fixed;
+    top: 16px;
+    inset-inline-end: 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
+  <button id="lang-toggle-btn" class="lang-toggle">العربية</button>
   <div class="wrap">
-    <div class="badge">Coming Soon</div>
+    <div class="badge" data-i18n="badge">Coming Soon</div>
     <h1>Saudi Address Finder</h1>
-    <p>A Shopify app that captures accurate Saudi National Addresses at checkout, so deliveries actually arrive.</p>
-    <p>We're putting the finishing touches on things. Check back soon.</p>
-    <footer>
+    <p data-i18n="tagline1">A Shopify app that captures accurate Saudi National Addresses at checkout, so deliveries actually arrive.</p>
+    <p data-i18n="tagline2">We're putting the finishing touches on things. Check back soon.</p>
+    <footer data-i18n="footer">
       Questions? <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a> · <a href="/help.html">Help &amp; FAQ</a> · <a href="/privacy.html">Privacy Policy</a>
     </footer>
   </div>
+  <script>
+    window.PAGE_STRINGS = {
+      badge: { en: "Coming Soon", ar: "قريباً" },
+      tagline1: {
+        en: "A Shopify app that captures accurate Saudi National Addresses at checkout, so deliveries actually arrive.",
+        ar: "تطبيق شوبيفاي يلتقط العنوان الوطني السعودي بدقة عند الدفع، لضمان وصول الطلبات فعلياً."
+      },
+      tagline2: {
+        en: "We're putting the finishing touches on things. Check back soon.",
+        ar: "نعمل على اللمسات الأخيرة. تفقدوا الموقع قريباً."
+      },
+      footer: {
+        en: 'Questions? <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a> · <a href="/help.html">Help &amp; FAQ</a> · <a href="/privacy.html">Privacy Policy</a>',
+        ar: 'أسئلة؟ <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a> · <a href="/help.html">المساعدة والأسئلة الشائعة</a> · <a href="/privacy.html">سياسة الخصوصية</a>'
+      }
+    };
+  </script>
+  <script src="/lang.js"></script>
   <script src="/chat-widget.js"></script>
 </body>
 </html>

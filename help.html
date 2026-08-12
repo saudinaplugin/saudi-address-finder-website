@@ -43,6 +43,7 @@
     font-size: 15px;
   }
   ol, ul { padding-left: 20px; }
+  html[dir="rtl"] ol, html[dir="rtl"] ul { padding-left: 0; padding-right: 20px; }
   ol li { margin-bottom: 10px; }
   a { color: #059669; }
   .back {
@@ -51,57 +52,142 @@
     font-size: 13px;
   }
   .faq-item { margin-bottom: 20px; }
+  .step-shot {
+    display: block;
+    max-width: 100%;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin: 10px 0 16px;
+  }
+  .lang-toggle {
+    position: fixed;
+    top: 16px;
+    inset-inline-end: 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
+  <button id="lang-toggle-btn" class="lang-toggle">العربية</button>
   <div class="wrap">
-    <a class="back" href="/">&larr; Saudi Address Finder</a>
-    <h1>Help &amp; FAQ</h1>
-    <div class="subtitle">Getting started, and answers to common questions.</div>
+    <a class="back" href="/" data-i18n="back">&larr; Saudi Address Finder</a>
+    <h1 data-i18n="title">Help &amp; FAQ</h1>
+    <div class="subtitle" data-i18n="subtitle">Getting started, and answers to common questions.</div>
 
-    <h2>Getting Started</h2>
-    <ol>
-      <li>Install the app on your store from the Shopify App Store.</li>
-      <li>Go to <strong>Sales channels &rarr; Online Store &rarr; Edit theme</strong> (or <strong>Customize</strong>).</li>
-      <li>Click the app embeds icon (top toolbar), find <strong>"National Address Picker"</strong> in the list, and turn it on.</li>
-      <li>Click <strong>Save</strong> — the toggle alone doesn't apply until you save.</li>
-      <li>In the app's admin, under <strong>Settings</strong>, confirm "Enable National Address widget on storefront" is turned on.</li>
-      <li>Customers will now see a "Please Select Your Delivery Location" prompt in their cart. They drop a pin on the map, and the app resolves it into a National Address code automatically.</li>
-      <li>In the app's dashboard, the <strong>Resolved orders</strong> table shows every order with a National Address found, and how it was found. The <strong>Unresolved orders</strong> table shows any orders that still need one, with quick links to follow up by email or WhatsApp.</li>
-    </ol>
+    <div data-i18n="body">
+      <h2>Getting Started</h2>
+      <ol>
+        <li>Install the app on your store from the Shopify App Store.</li>
+        <li>Go to <strong>Sales channels &rarr; Online Store &rarr; Edit theme</strong>.</li>
+        <li>Click the app embeds icon (top toolbar), find <strong>"National Address Picker"</strong> in the list, and turn it on.</li>
+        <img class="step-shot" src="/assets/screenshots/app-embeds-list-en.png" alt="App embeds list with National Address Picker toggle" />
+        <li>Click <strong>Save</strong> — the toggle alone doesn't apply until you save.</li>
+        <img class="step-shot" src="/assets/screenshots/app-embed-toggle-save-en.png" alt="Save button in the theme editor toolbar" />
+        <li>In the app's admin, under <strong>Settings</strong>, confirm "Enable National Address widget on storefront" is turned on.</li>
+        <li>Customers will now see a "Please Select Your Delivery Location" prompt in their cart. They drop a pin on the map, and the app resolves it into a National Address code automatically.</li>
+        <li>In the app's dashboard, the <strong>Resolved orders</strong> table shows every order with a National Address found, and how it was found. The <strong>Unresolved orders</strong> table shows any orders that still need one, with quick links to follow up by email or WhatsApp.</li>
+      </ol>
 
-    <h2>FAQ</h2>
+      <h2>FAQ</h2>
 
-    <div class="faq-item">
-      <h3>Does this cost anything?</h3>
-      <p>There's a free plan (25 orders/month), and two paid plans for higher volume: Growth ($12/mo) and Scale ($25/mo). You can upgrade any time from the app's Plan &amp; Usage section.</p>
-    </div>
+      <div class="faq-item">
+        <h3>Does this cost anything?</h3>
+        <p>There's a free plan (25 orders/month), and two paid plans for higher volume: Growth ($12/mo) and Scale ($25/mo). You can upgrade any time from the app's Plan &amp; Usage section.</p>
+      </div>
 
-    <div class="faq-item">
-      <h3>Is customer data safe?</h3>
-      <p>Yes. The database is encrypted at rest, every access to customer contact info is logged, and that info is automatically deleted 90 days after an order is processed. We don't sell or share customer data with anyone.</p>
-    </div>
+      <div class="faq-item">
+        <h3>Is customer data safe?</h3>
+        <p>Yes. The database is encrypted at rest, every access to customer contact info is logged, and that info is automatically deleted 90 days after an order is processed. We don't sell or share customer data with anyone.</p>
+      </div>
 
-    <div class="faq-item">
-      <h3>Do I need my own Google Maps key?</h3>
-      <p>No — a shared key is used by default and just works. If you have your own Google Cloud project, you can add your own key in Settings to remove the monthly map-view cap.</p>
-    </div>
+      <div class="faq-item">
+        <h3>Do I need my own Google Maps key?</h3>
+        <p>No — a shared key is used by default and just works. If you have your own Google Cloud project, you can add your own key in Settings to remove the monthly map-view cap.</p>
+      </div>
 
-    <div class="faq-item">
-      <h3>Will it work with my theme?</h3>
-      <p>Yes, as long as your theme supports Online Store 2.0 app embeds (most current Shopify themes do). The widget installs as a standard app block — no manual theme code editing required.</p>
-    </div>
+      <div class="faq-item">
+        <h3>Will it work with my theme?</h3>
+        <p>Yes, as long as your theme supports Online Store 2.0 app embeds (most current Shopify themes do). The widget installs as a standard app block — no manual theme code editing required.</p>
+      </div>
 
-    <div class="faq-item">
-      <h3>What if a customer can't find their address?</h3>
-      <p>Checkout is never blocked. If a customer doesn't complete the map step, the order still goes through, and the app automatically retries recovering the address afterward. If it still can't find one, the order shows up in the app's Unresolved orders table so you can follow up directly.</p>
-    </div>
+      <div class="faq-item">
+        <h3>What if a customer can't find their address?</h3>
+        <p>Checkout is never blocked. If a customer doesn't complete the map step, the order still goes through, and the app automatically retries recovering the address afterward. If it still can't find one, the order shows up in the app's Unresolved orders table so you can follow up directly.</p>
+      </div>
 
-    <div class="faq-item">
-      <h3>How do I get support?</h3>
-      <p>Email <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a>, or use the chat bubble on this site.</p>
+      <div class="faq-item">
+        <h3>How do I get support?</h3>
+        <p>Email <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a>, or use the chat bubble on this site.</p>
+      </div>
     </div>
   </div>
+  <script>
+    window.PAGE_STRINGS = {
+      back: { en: "&larr; Saudi Address Finder", ar: "&rarr; Saudi Address Finder" },
+      title: { en: "Help &amp; FAQ", ar: "المساعدة والأسئلة الشائعة" },
+      subtitle: {
+        en: "Getting started, and answers to common questions.",
+        ar: "دليل البدء، وإجابات على الأسئلة الشائعة."
+      },
+      body: {
+        en: document.querySelector('[data-i18n="body"]') ? document.querySelector('[data-i18n="body"]').innerHTML : "",
+        ar: `
+      <h2>دليل البدء</h2>
+      <ol>
+        <li>ثبّت التطبيق على متجرك من متجر تطبيقات شوبيفاي.</li>
+        <li>اذهب إلى <strong>قنوات المبيعات &larr; المتجر الإلكتروني &larr; تعديل القالب</strong>.</li>
+        <img class="step-shot" src="/assets/screenshots/nav-to-theme-editor-ar.png" alt="قنوات المبيعات ثم تعديل القالب" />
+        <li>اضغط على أيقونة <strong>تضمينات التطبيقات</strong> (شريط الأدوات العلوي)، ابحث عن <strong>"National Address Picker"</strong> في القائمة، وفعّله.</li>
+        <li>اضغط <strong>Save</strong> — لا يتم تطبيق التفعيل حتى تحفظ.</li>
+        <img class="step-shot" src="/assets/screenshots/app-embed-toggle-save-ar.png" alt="تفعيل الأداة ثم الحفظ" />
+        <li>في إدارة التطبيق، ضمن <strong>الإعدادات</strong>، تأكد أن "تفعيل أداة العنوان الوطني في المتجر" مفعّلة.</li>
+        <li>سيرى العملاء الآن رسالة "يرجى تحديد موقع التوصيل" في سلة التسوق. يضعون دبوساً على الخريطة، ويحدد التطبيق العنوان الوطني تلقائياً.</li>
+        <li>في لوحة تحكم التطبيق، يعرض جدول <strong>الطلبات المحلولة</strong> كل طلب تم تحديد عنوان وطني له، وكيف تم ذلك. يعرض جدول <strong>الطلبات غير المحلولة</strong> أي طلبات ما زالت بحاجة لعنوان، مع روابط سريعة للمتابعة عبر البريد الإلكتروني أو واتساب.</li>
+      </ol>
+
+      <h2>الأسئلة الشائعة</h2>
+
+      <div class="faq-item">
+        <h3>هل يكلف هذا أي شيء؟</h3>
+        <p>هناك خطة مجانية (25 طلب/شهرياً)، وخطتان مدفوعتان للحجم الأكبر: Growth (12$/شهرياً) و Scale (25$/شهرياً). يمكنك الترقية في أي وقت من قسم الخطة والاستخدام في التطبيق.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>هل بيانات العملاء آمنة؟</h3>
+        <p>نعم. قاعدة البيانات مشفّرة أثناء التخزين، ويتم تسجيل كل وصول إلى بيانات التواصل مع العملاء، ويتم حذف تلك البيانات تلقائياً بعد 90 يوماً من معالجة الطلب. لا نبيع أو نشارك بيانات العملاء مع أي جهة.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>هل أحتاج إلى مفتاح Google Maps خاص بي؟</h3>
+        <p>لا — يُستخدم مفتاح مشترك افتراضياً ويعمل مباشرة. إذا كان لديك مشروع Google Cloud خاص بك، يمكنك إضافة مفتاحك الخاص في الإعدادات لإزالة الحد الشهري لمشاهدات الخريطة.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>هل سيعمل مع القالب الخاص بي؟</h3>
+        <p>نعم، طالما أن قالبك يدعم تضمينات التطبيقات (Online Store 2.0) — وهو ما تدعمه معظم قوالب شوبيفاي الحالية. يتم تثبيت الأداة كعنصر تطبيق قياسي، دون الحاجة لتعديل كود القالب يدوياً.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>ماذا لو تعذّر على العميل تحديد عنوانه؟</h3>
+        <p>لا يتم إيقاف عملية الدفع مطلقاً. إذا لم يكمل العميل خطوة الخريطة، يتم تنفيذ الطلب على أي حال، ويحاول التطبيق تلقائياً استرجاع العنوان لاحقاً. إذا تعذّر ذلك، يظهر الطلب في جدول الطلبات غير المحلولة حتى تتمكن من المتابعة مباشرة.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>كيف أحصل على الدعم؟</h3>
+        <p>راسلنا على <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a>، أو استخدم أداة الدردشة في هذا الموقع.</p>
+      </div>
+        `
+      }
+    };
+  </script>
+  <script src="/lang.js"></script>
   <script src="/chat-widget.js"></script>
 </body>
 </html>

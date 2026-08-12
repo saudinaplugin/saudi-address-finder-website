@@ -38,47 +38,108 @@
     font-size: 15px;
   }
   ul { padding-left: 20px; }
+  html[dir="rtl"] ul { padding-left: 0; padding-right: 20px; }
   a { color: #059669; }
   .back {
     display: inline-block;
     margin-bottom: 24px;
     font-size: 13px;
   }
+  .lang-toggle {
+    position: fixed;
+    top: 16px;
+    inset-inline-end: 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
+  <button id="lang-toggle-btn" class="lang-toggle">العربية</button>
   <div class="wrap">
-    <a class="back" href="/">&larr; Saudi Address Finder</a> &nbsp;&middot;&nbsp; <a class="back" href="/help.html">Help &amp; FAQ</a>
-    <h1>Privacy Policy</h1>
-    <div class="updated">Last updated: August 2026</div>
+    <div data-i18n="backlinks">
+      <a class="back" href="/">&larr; Saudi Address Finder</a> &nbsp;&middot;&nbsp; <a class="back" href="/help.html">Help &amp; FAQ</a>
+    </div>
+    <h1 data-i18n="title">Privacy Policy</h1>
+    <div class="updated" data-i18n="updated">Last updated: August 2026</div>
 
-    <p>Saudi Address Finder ("the app") is a Shopify app that helps merchants capture an accurate Saudi National Address (the short-code delivery address format issued by Saudi Post) from customers at checkout. This page explains what data the app processes, why, and how it's handled.</p>
+    <div data-i18n="body">
+      <p>Saudi Address Finder ("the app") is a Shopify app that helps merchants capture an accurate Saudi National Address (the short-code delivery address format issued by Saudi Post) from customers at checkout. This page explains what data the app processes, why, and how it's handled.</p>
 
-    <h2>What we collect</h2>
-    <ul>
-      <li><strong>Delivery location:</strong> the map pin a customer drops in the checkout widget (latitude/longitude), and the National Address short code resolved from it.</li>
-      <li><strong>Order address details:</strong> the shipping address already provided to the merchant's store, used to tag orders and to attempt automatic address recovery for orders that didn't get one at checkout.</li>
-      <li><strong>Customer contact info (email/phone):</strong> only for orders where no address could be resolved, so the merchant can follow up directly. Not used for anything else.</li>
-      <li><strong>Merchant settings:</strong> the store's app configuration (enabled/disabled, styling preferences, and, if the merchant chooses to supply one, their own Google Maps API key).</li>
-    </ul>
+      <h2>What we collect</h2>
+      <ul>
+        <li><strong>Delivery location:</strong> the map pin a customer drops in the checkout widget (latitude/longitude), and the National Address short code resolved from it.</li>
+        <li><strong>Order address details:</strong> the shipping address already provided to the merchant's store, used to tag orders and to attempt automatic address recovery for orders that didn't get one at checkout.</li>
+        <li><strong>Customer contact info (email/phone):</strong> only for orders where no address could be resolved, so the merchant can follow up directly. Not used for anything else.</li>
+        <li><strong>Merchant settings:</strong> the store's app configuration (enabled/disabled, styling preferences, and, if the merchant chooses to supply one, their own Google Maps API key).</li>
+      </ul>
 
-    <h2>How it's used</h2>
-    <p>Data is used solely to resolve and tag a valid National Address on orders, and to give merchants visibility into which orders succeeded, failed, or were recovered afterward. We do not sell customer data, and we do not use it for advertising or profiling.</p>
+      <h2>How it's used</h2>
+      <p>Data is used solely to resolve and tag a valid National Address on orders, and to give merchants visibility into which orders succeeded, failed, or were recovered afterward. We do not sell customer data, and we do not use it for advertising or profiling.</p>
 
-    <h2>Third parties</h2>
-    <ul>
-      <li><strong>Google Maps JavaScript API</strong>, which powers the interactive map used to select a delivery location. Subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
-      <li><strong>A third-party geocoding service</strong>, used server-side to convert a map location or address text into a National Address code.</li>
-      <li><strong>Shopify</strong>, the platform the app runs on; order and shop data is accessed through Shopify's Admin API under the permissions the merchant grants at install.</li>
-    </ul>
+      <h2>Third parties</h2>
+      <ul>
+        <li><strong>Google Maps JavaScript API</strong>, which powers the interactive map used to select a delivery location. Subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+        <li><strong>A third-party geocoding service</strong>, used server-side to convert a map location or address text into a National Address code.</li>
+        <li><strong>Shopify</strong>, the platform the app runs on; order and shop data is accessed through Shopify's Admin API under the permissions the merchant grants at install.</li>
+      </ul>
 
-    <h2>Data retention and your rights</h2>
-    <p>We retain order-related data for as long as the app is installed on a given store, to support the merchant's own order history and analytics. When a merchant uninstalls the app, or when Shopify notifies us of a customer or shop data request/erasure, we act on it through Shopify's mandatory privacy webhooks, including redacting stored customer contact info on request.</p>
-    <p>To request access to or deletion of your data, contact your merchant directly, or reach us at <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a>.</p>
+      <h2>Data retention and your rights</h2>
+      <p>We retain order-related data for as long as the app is installed on a given store, to support the merchant's own order history and analytics. When a merchant uninstalls the app, or when Shopify notifies us of a customer or shop data request/erasure, we act on it through Shopify's mandatory privacy webhooks, including redacting stored customer contact info on request.</p>
+      <p>To request access to or deletion of your data, contact your merchant directly, or reach us at <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a>.</p>
 
-    <h2>Contact</h2>
-    <p>Questions about this policy: <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a></p>
+      <h2>Contact</h2>
+      <p>Questions about this policy: <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a></p>
+    </div>
   </div>
+  <script>
+    window.PAGE_STRINGS = {
+      backlinks: {
+        en: '<a class="back" href="/">&larr; Saudi Address Finder</a> &nbsp;&middot;&nbsp; <a class="back" href="/help.html">Help &amp; FAQ</a>',
+        ar: '<a class="back" href="/">&rarr; Saudi Address Finder</a> &nbsp;&middot;&nbsp; <a class="back" href="/help.html">المساعدة والأسئلة الشائعة</a>'
+      },
+      title: { en: "Privacy Policy", ar: "سياسة الخصوصية" },
+      updated: { en: "Last updated: August 2026", ar: "آخر تحديث: أغسطس 2026" },
+      body: {
+        en: document.querySelector('[data-i18n="body"]') ? document.querySelector('[data-i18n="body"]').innerHTML : "",
+        ar: `
+      <p>Saudi Address Finder ("التطبيق") هو تطبيق شوبيفاي يساعد التجار على التقاط عنوان وطني سعودي دقيق (تنسيق عنوان التوصيل المختصر الصادر عن البريد السعودي) من العملاء عند إتمام الشراء. توضح هذه الصفحة البيانات التي يعالجها التطبيق، ولماذا، وكيف يتم التعامل معها.</p>
+
+      <h2>ما الذي نجمعه</h2>
+      <ul>
+        <li><strong>موقع التوصيل:</strong> الدبوس الذي يضعه العميل على الخريطة في أداة إتمام الشراء (خط العرض/خط الطول)، والعنوان الوطني المختصر الذي يتم استخراجه منه.</li>
+        <li><strong>تفاصيل عنوان الطلب:</strong> عنوان الشحن الذي تم تقديمه بالفعل لمتجر التاجر، ويُستخدم لوضع علامات على الطلبات ولمحاولة استرجاع العنوان تلقائياً للطلبات التي لم تحصل على عنوان عند الدفع.</li>
+        <li><strong>بيانات التواصل مع العميل (البريد الإلكتروني/الهاتف):</strong> فقط للطلبات التي تعذّر تحديد عنوان لها، حتى يتمكن التاجر من المتابعة مباشرة. لا تُستخدم لأي غرض آخر.</li>
+        <li><strong>إعدادات التاجر:</strong> إعدادات التطبيق الخاصة بالمتجر (تفعيل/تعطيل، تفضيلات التنسيق، ومفتاح Google Maps API الخاص به إن اختار التاجر توفير واحد).</li>
+      </ul>
+
+      <h2>كيف يتم استخدامها</h2>
+      <p>تُستخدم البيانات فقط لتحديد ووضع علامة على عنوان وطني صحيح على الطلبات، ولإعطاء التجار رؤية واضحة حول الطلبات التي نجحت أو فشلت أو تم استرجاعها لاحقاً. نحن لا نبيع بيانات العملاء، ولا نستخدمها للإعلانات أو التنميط.</p>
+
+      <h2>أطراف ثالثة</h2>
+      <ul>
+        <li><strong>واجهة برمجة تطبيقات Google Maps JavaScript</strong>، التي تشغّل الخريطة التفاعلية المستخدمة لاختيار موقع التوصيل. تخضع لـ <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">سياسة خصوصية Google</a>.</li>
+        <li><strong>خدمة ترميز جغرافي من طرف ثالث</strong>، تُستخدم من جانب الخادم لتحويل موقع على الخريطة أو نص عنوان إلى رمز عنوان وطني.</li>
+        <li><strong>شوبيفاي</strong>، المنصة التي يعمل عليها التطبيق؛ يتم الوصول إلى بيانات الطلبات والمتجر عبر واجهة برمجة تطبيقات الإدارة الخاصة بشوبيفاي وفق الصلاحيات التي يمنحها التاجر عند التثبيت.</li>
+      </ul>
+
+      <h2>الاحتفاظ بالبيانات وحقوقك</h2>
+      <p>نحتفظ بالبيانات المتعلقة بالطلبات طالما أن التطبيق مثبّت على متجر معين، لدعم سجل الطلبات والتحليلات الخاصة بالتاجر. عند إلغاء تثبيت التطبيق من قبل التاجر، أو عند إخطارنا من شوبيفاي بطلب بيانات أو حذف بيانات من عميل أو متجر، نتصرف بناءً على ذلك عبر ويب هوكس الخصوصية الإلزامية من شوبيفاي، بما في ذلك حذف بيانات التواصل الخاصة بالعميل عند الطلب.</p>
+      <p>لطلب الوصول إلى بياناتك أو حذفها، تواصل مع التاجر مباشرة، أو راسلنا على <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a>.</p>
+
+      <h2>التواصل</h2>
+      <p>أسئلة حول هذه السياسة: <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a></p>
+        `
+      }
+    };
+  </script>
+  <script src="/lang.js"></script>
   <script src="/chat-widget.js"></script>
 </body>
 </html>
