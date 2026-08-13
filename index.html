@@ -46,6 +46,17 @@
   a {
     color: #059669;
   }
+  .install-btn {
+    display: inline-block;
+    background: #059669;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 12px 0 20px;
+  }
   footer {
     margin-top: 32px;
     font-size: 13px;
@@ -69,24 +80,29 @@
 <body>
   <button id="lang-toggle-btn" class="lang-toggle">العربية</button>
   <div class="wrap">
-    <div class="badge" data-i18n="badge">Coming Soon</div>
+    <div class="badge" data-i18n="badge">Now Available</div>
     <h1>Saudi Address Finder</h1>
     <p data-i18n="tagline1">A Shopify app that captures accurate Saudi National Addresses at checkout, so deliveries actually arrive.</p>
-    <p data-i18n="tagline2">We're putting the finishing touches on things. Check back soon.</p>
+    <p data-i18n="tagline2">Available now on the Shopify App Store.</p>
+    <a class="install-btn" href="https://apps.shopify.com/saudi-address-finder" target="_blank" rel="noopener" data-i18n="installBtn">Install on Shopify App Store</a>
     <footer data-i18n="footer">
       Questions? <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a> · <a href="/help.html">Help &amp; FAQ</a> · <a href="/privacy.html">Privacy Policy</a>
     </footer>
   </div>
   <script>
     window.PAGE_STRINGS = {
-      badge: { en: "Coming Soon", ar: "قريباً" },
+      badge: { en: "Now Available", ar: "متاح الآن" },
       tagline1: {
         en: "A Shopify app that captures accurate Saudi National Addresses at checkout, so deliveries actually arrive.",
         ar: "تطبيق شوبيفاي يلتقط العنوان الوطني السعودي بدقة عند الدفع، لضمان وصول الطلبات فعلياً."
       },
       tagline2: {
-        en: "We're putting the finishing touches on things. Check back soon.",
-        ar: "نعمل على اللمسات الأخيرة. تفقدوا الموقع قريباً."
+        en: "Available now on the Shopify App Store.",
+        ar: "متاح الآن على متجر تطبيقات شوبيفاي."
+      },
+      installBtn: {
+        en: "Install on Shopify App Store",
+        ar: "التثبيت من متجر تطبيقات شوبيفاي"
       },
       footer: {
         en: 'Questions? <a href="mailto:support@saudiaddressfinder.com">support@saudiaddressfinder.com</a> · <a href="/help.html">Help &amp; FAQ</a> · <a href="/privacy.html">Privacy Policy</a>',
